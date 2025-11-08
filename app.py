@@ -127,5 +127,11 @@ with gr.Blocks(theme=gr.themes.Soft(), title="AI Mental Health Assistant") as de
     submit_btn.click(fn=gradio_interface, inputs=user_input, outputs=output)
 
 # ---- Launch the Gradio app ----
+# if __name__ == "__main__":
+#     demo.launch()
+
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=int(os.environ.get("PORT", 7860))
+    )
